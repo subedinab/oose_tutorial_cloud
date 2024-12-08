@@ -1,4 +1,4 @@
-name: Python CI
+name: Python CI/CD
 
 on:
   push:
@@ -23,3 +23,14 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to EC2
+        run: |
+          ssh -i  ubuntu@13.232.85.220 "cd /home/ubuntu/oose_tutorial_cloud && git pull && python3 main.py"
