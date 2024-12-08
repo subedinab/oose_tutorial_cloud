@@ -33,4 +33,4 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -i  ubuntu@13.232.85.220 "cd /home/ubuntu/oose_tutorial_cloud && git pull && python3 main.py"
+          ssh ubuntu@13.232.85.220 "cd /home/ubuntu/oose_tutorial_cloud && git pull && python3 main.py"
